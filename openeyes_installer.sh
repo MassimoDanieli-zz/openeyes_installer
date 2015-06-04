@@ -4,7 +4,7 @@ echo "Usage : openeyes_installer.sh BRANCH_NUMBER"
         echo "The available branches are:"
         echo ""
                 BRANCH=$(git ls-remote --heads  git://github.com/openeyes/OpenEyes.git | awk -F"/" '{print substr($0, index($0, $3))}')
-select ins_bra in $BRANCH
+select ins_bra in $BRANCH;
 do
         echo "install $ins_bra "
         break
