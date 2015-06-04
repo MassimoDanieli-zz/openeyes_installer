@@ -1,4 +1,10 @@
 #!/bin/bash
+apt-get update
+apt-get upgrade -y
+DEBIAN_FRONTEND=noninteractive apt-get install git chef -y
+
+
+
 echo "Usage : openeyes_installer.sh BRANCH_NUMBER"
         echo ""
         echo "The available branches are:"
@@ -14,10 +20,6 @@ echo ""
 echo "I'm now installing OpenEyes branch $branch on $INSTANCE_ID"
 
 
-sudo -i
-apt-get update
-apt-get	upgrade -y
-DEBIAN_FRONTEND=noninteractive apt-get install git chef -y
 /usr/bin/git clone -b aws --recursive https://github.com/MassimoDanieli/oe_chef.git
 mkdir /var/www
 cd /var/www && git clone -b $ins_bra  https://github.com/openeyes/OpenEyes.git openeyes
