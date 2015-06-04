@@ -10,6 +10,8 @@ export JAVA_HOME=$(/usr/libexec/java_home)
 
 AWS_GROUP=""     # your security group here
 AWS_KEY=""  # your key name here
+PEM=""  #path to your pem
+
 
 if [ $# -lt 1 ]
 then
@@ -41,7 +43,7 @@ INSTANCE_IP=$(ec2-describe-instances $INSTANCE_ID  --region eu-west-1 | awk 'FNR
 
 echo ""
 echo "I'm now installing OpenEyes branch $branch on $INSTANCE_ID"
-ssh -T -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -l ubuntu -i /Users/massimo/Documents/PEM/max-casa.pem $INSTANCE_IP << EOF
+ssh -T -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -l ubuntu -i $PEM $INSTANCE_IP << EOF
 sudo -i
 apt-get update
 apt-get	upgrade -y
