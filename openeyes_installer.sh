@@ -13,7 +13,7 @@ done
 echo ""
 echo "I'm now installing OpenEyes branch $branch on $INSTANCE_ID"
 
-<< EOF
+
 sudo -i
 apt-get update
 apt-get	upgrade -y
@@ -23,10 +23,10 @@ mkdir /var/www
 cd /var/www && git clone -b $ins_bra  https://github.com/openeyes/OpenEyes.git openeyes
 cd /root/oe_chef
 /usr/bin/chef-solo -c solo.rb -j oe.jason
-EOF
 
-IP='ifconfig eth0 | awk '/inet addr/{print substr($2,6)}'
+
+# IP='ifconfig eth0 | awk '/inet addr/{print substr($2,6)}'
 echo ""
 echo "OpenEyes $branch was successfully installed !!"
 echo ""
-echo "You can now start using OpenEyes: http://$IP"
+echo "You can now start using OpenEyes: http://localhost"
