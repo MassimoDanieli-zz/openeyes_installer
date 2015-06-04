@@ -8,7 +8,6 @@ select ins_bra in $BRANCH
 do
         echo "install $ins_bra "
         break
-	default)  echo "sorry, not a valid option" && exit
 done
 
 echo ""
