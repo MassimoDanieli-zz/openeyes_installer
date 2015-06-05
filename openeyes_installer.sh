@@ -17,7 +17,7 @@ do
 done
 
 echo ""
-echo "I'm now installing OpenEyes branch $branch on $INSTANCE_ID"
+echo "I'm now installing OpenEyes branch $ins_bra on $INSTANCE_ID"
 
 
 /usr/bin/git clone -b aws --recursive https://github.com/MassimoDanieli/oe_chef.git
