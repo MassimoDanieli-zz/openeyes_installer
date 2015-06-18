@@ -8,10 +8,11 @@ export EC2_HOME=/usr/local/ec2/ec2-api-tools-1.7.3.2/
 export PATH=$PATH:$EC2_HOME/bin
 export JAVA_HOME=$(/usr/libexec/java_home)
 
+# Bit of configuration
 AWS_GROUP=""     # your security group here
 AWS_KEY=""  # your key name here
 PEM=""  #path to your pem
-
+AWS_INS_TYPE= "" # instance type. t2.micro is ok for testing/demo purposes
 
 if [ $# -lt 1 ]
 then
@@ -27,7 +28,7 @@ do
 done
 fi
 
-INSTANCE_ID=$(ec2-run-instances ami-47a23a30 --instance-type t2.medium -g $AWS_GROUP --key $AWS_KEY --availability-zone eu-west-1b --region eu-west-1 | awk 'FNR == 2 {print $2}')
+INSTANCE_ID=$(ec2-run-instances ami-47a23a30 -t $AWS_INS_TYPE -g $AWS_GROUP --key $AWS_KEY --availability-zone eu-west-1b --region eu-west-1 | awk 'FNR == 2 {print $2}')
 echo "Please wait until the new instance  $INSTANCE_ID is up and running"
 echo ""
 
@@ -60,4 +61,4 @@ echo "OpenEyes $branch was successfully installed !!"
 echo ""
 echo "You can now tart using OpenEyes: http://$INSTANCE_IP"
 echo ""
-echo "Please DO NOT FORGET to terminate this instance \"ec2-terminate-instances $INSTANCE_ID\" !!!"
+echo "Have fun !!"
