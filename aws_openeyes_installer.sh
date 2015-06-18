@@ -57,8 +57,8 @@ cd /root/oe_chef
 EOF
 
 echo ""
-echo "OpenEyes $branch was successfully installed !!"
+echo "OpenEyes $branch is successfully installed !!"
 echo ""
-echo "You can now tart using OpenEyes: http://$INSTANCE_IP"
+echo "You can now start using OpenEyes: http://$INSTANCE_IP"
 echo ""
 echo "Have fun !!"
